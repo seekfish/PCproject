@@ -15,8 +15,8 @@ gulp.task("server",function(){
 	});
 });
 //压缩js和兼容
-gulp.task("js",function(){
-	gulp.src("scr/js/**/*.js")
+gulp.task("js", function(){
+	gulp.src("src/js/**/*.js")
 		.pipe(babel({
             presets: ['env']
         }))
@@ -24,6 +24,7 @@ gulp.task("js",function(){
 		.pipe(gulp.dest("dist/js"))
 		.pipe(connect.reload());
 });
+
 //编译sass和压缩
 gulp.task("sass",function(){
 	gulp.src("src/sass/**/*.scss")
