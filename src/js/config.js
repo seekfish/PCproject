@@ -6,7 +6,9 @@ require.config({
 		zoom : "lib/jquery_plugins/jquery.elevateZoom-3.0.8.min",
 		carousel : "lib/jquery_plugins/jquery.xmcarousel",
 		template : "lib/artTemplate/template",
-		load : "js/loadHeaderFooter"
+		load : "js/loadHeaderFooter",
+		load2:"js/loadloginHeaderFooter"
+
 	},
 	shim : {
 		carousel : {

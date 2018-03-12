@@ -36,7 +36,7 @@
 			let liHtml = "", iHtml = "";
 			for (let i = 0, len = this.imgs.length; i < len; i++) {
 				liHtml += `<li><a href="${this.imgs[i].href}"><img src="${this.imgs[i].src}"></a></li>`;
-				iHtml += "<i></i>";
+				iHtml += `<i>${i+1}</i>`;
 			}
 			$(".imgs", container).html(liHtml); // 将li添加到ul中
 			$(".pages", container).html(iHtml); // 将 i 添加到 div.pages 中
@@ -45,7 +45,6 @@
 				width : this.width,
 				height : this.height
 			});
-			$(".pages", container).css("width", this.width);
 			$(container).css("width", this.width);
 			// 显示第一张图片
 			$(".imgs li:first", container).show();
