@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/css/cart.css">
+</head>
+<body>
+<script src="/lib/requirejs/require.js" data-main="/js/cart.js"></script>
+<header></header>
+<div class="main">
+	<form method="post" id="cart_form">
+		<div class="all">
+			<div class="all_top">
+				<span class="all_span1">全部商品</span>
+				(<span class="all_span2">0</span>)
+			</div>
+			<div class="prod_title">
+				<ul>
+					<li>
+						<input type="checkbox" id="5" name="checkbox">
+						<label for="5" class="add_all">全选</label>
+					</li>
+					<li class="a">商品信息</li>
+					<li class="b">单元（元）</li>
+					<li class="c">数量</li>
+					<li class="d">促销</li>
+					<li class="e">金额（元）</li>
+					<li class="f">操作</li>
+				</ul>
+			</div>
+			<div class="content">
+				<div class="img_bg">
+					
+				</div>
+				<div class="sorry">
+					<p>对不起，您的购物车暂无商品</p>
+					<a class="a1" href="/index.html"></a>
+					<a class="a2" href="#"></a>
+				</div>
+			</div>
+			<div class="bottom">
+				<div class="bottom_con">
+					<div class="con_top">
+						<input type="checkbox" id="5" name="checkbox">
+						<label for="5" class="add_all">全选</label>
+						<span>批量删除</span>
+						<span>批量移入收藏夹</span>
+						<span>消除失效物品</span>
+					</div>
+					<div class="con_right">
+						已选商品<span class="con_span1">0</span>件 &nbsp;(不含运费)
+						<span class="con_span2">￥</span><span class="con_span3">0</span>
+						<input class="zhifu" type="button" name="zhifu">
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>	
+</div>
+<footer></footer>
+</body>
+</html>

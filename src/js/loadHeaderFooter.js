@@ -1,4 +1,4 @@
-define(["jquery"],function(){
+define(["jquery","cookie"],function(){
 	/*加载头部*/
 	$("header").load("/html/include/header.html",function(){
 		//点击搜索栏
@@ -60,6 +60,26 @@ define(["jquery"],function(){
 			$(".ul_box").hide();
 			$(this).css({"background":"black"});
 			});
+		//注册成功后加载
+		$.cookie.json = true;
+		let a=$.cookie("loginUser");
+			// b=$.parseJSON(a),
+		if(a){
+		$(".yonghu").show().html("hi"+a.email);
+		$(".index_register,.index_login").hide();
+		$("#tuichu").show();
+			}
+		else
+		{$(".index_register,.index_login").show();
+			$(".yonghu,#tuichu").hide();
+		}
+		//点击退出
+		$("#tuichu").click(function(){
+			$.removeCookie("loginUser",{path:"/"});
+			$(".index_register,.index_login").show();
+			$(".yonghu,#tuichu").hide();
+		})
 	})
+	$("footer").load("/html/include/footer.html");
 
 })

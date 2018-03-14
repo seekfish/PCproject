@@ -1,5 +1,5 @@
 require(["/js/config.js"],function(){
-	require(["jquery","load2"],function(){
+	require(["jquery","load2","cookie"],function(){
 		//绑定点击事件
 		$("[name='zhanghao']").click(function(){
 			$("[name='zhanghao']").val("")
@@ -27,6 +27,8 @@ require(["/js/config.js"],function(){
 							alert(data.res_error);
 						}
 					else{
+						$.cookie.json = true; // 自动调用JSON.stringify()、JSON.parse()来转换JS值与JSON字符串
+						$.cookie("loginUser", data.res_body, {path:"/"});
 						location="/index.html"
 					}
 				},
