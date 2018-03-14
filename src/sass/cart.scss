@@ -63,8 +63,70 @@
 				margin: 20px auto;
 				border: 1px solid #ccc;
 				position: relative;
-				height:280px;
+				min-height:280px;
 				overflow: hidden;
+				.prods{
+					display: none;
+					.prods_1{
+						overflow: hidden;
+						height:100px;
+						margin-bottom: 10px;
+						border-top: 1px solid #ccc;
+						#prods_inp{
+							margin-top:45px;
+							margin-left:17px;
+							float: left;
+						}
+						.title{
+							display: inline-block;
+							margin-left: 45px;
+							width: 200px;
+							float: left;
+							margin-top:35px;
+						}
+						.prods_img{
+							width: 100px;
+							height: 100px;
+							float: left;
+							margin-left: 45px;
+						}
+						.price{
+							display: inline-block;
+							margin-left: 70px;
+							margin-top:45px;
+							width: 40px;
+						}
+						.p2{
+							display: inline-block;
+							margin-left: 80px;
+							margin-top:45px;
+							margin-right: 15px;
+							width: 108px;
+							.amount{
+							display: inline-block;
+							width: 50px;
+							text-align: center;
+							outline:none;
+							}
+							span{
+								display: inline-block;
+								width: 17px;
+								height:17px;
+								border: 1px solid #ccc;
+								cursor: pointer;
+								text-align: center;
+								line-height: 17px;
+								font-size: 14px;
+							}
+						}
+						.jine{
+							margin-left: 70px;
+							margin-right: 70px;
+							width: 35px;
+						}
+						
+					}
+				}
 				.img_bg{
 					width: 150px;
 					height:195px;

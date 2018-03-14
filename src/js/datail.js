@@ -7,7 +7,6 @@ require(["/js/config.js"],function(){
 			$(".my_cart").css({"display":"block"});
 			$(".log_btm").css({"display":"none"});
 			//点击时，图片发生变化
-			console.log($("#li1"))
 			$("#li1").click(function(){
 				$("#img_1").attr("src","/images/b_14187157133660.jpg");
 				$("#img_11").attr("src","/images/m_1418715713311660.jpg");
@@ -51,15 +50,28 @@ require(["/js/config.js"],function(){
 						left:_left,
 						top:_top
 					})
-				// 	console.log(_sm.left)
-				// console.log(_big,_sm)
 					$("#img_11").css({
 						left:-1.5*_left,
 						top:-1.5*_top
 					})
 			});
-			
-
+			$(".dd1").on("click","a",function(){
+				$(this).css({"border":"1px solid red"})
+				$(this).siblings().not($(this)).css({"border":"1px solid #bfbfbf "});
+			})
+			$(".d2").on("click","a",function(){
+				$(this).css({"border":"1px solid red"})
+				$(this).siblings().not($(this)).css({"border":"1px solid #bfbfbf "});
+			})
+			$(".dl3_span2").click(function(){
+				$(".shu").val(Number($(".shu").val())+1)
+			})
+			$(".dl3_span1").click(function(){
+				$(".shu").val(Number($(".shu").val())-1)
+				if($(".shu").val()<=0){
+					$(".shu").val("1")
+				}
+			})
 		})
 	})
 })

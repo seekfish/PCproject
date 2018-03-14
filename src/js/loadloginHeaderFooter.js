@@ -45,6 +45,11 @@ define(["jquery","cookie"],function(){
 				$(".index_register,.index_login").show();
 				$("#tuichu").hide();
 			})
+			//加载购物车数量
+			$.cookie.json=true;
+			//获取cookie
+			let _prods=$.cookie("produncs")
+				$(".my_cart_3").text(_prods.length)
 	});
 	//加载尾部
 	$("footer").load("/html/loginfooter.html",function(){

@@ -170,26 +170,27 @@
 <script type="text/html" id="list_tem">
 	{{each list as prod}}
 		<div class="con">
-				<div class="id" style="display: none;">{{prod.id}}</div>
+				<div class="prod_id" style="display: none;">{{prod.id}}</div>
 				<div class="con_one">
+					<div id="succ">加入成功</div>
 					<div class="one_pic">
 						<a target="_black" href="/html/detail.html">
-							<img src="{{prod.img}}" alt=""></a>
+							<img id="prod_img" src="{{prod.img}}" alt=""></a>
 					</div>
 					<div class="one_txt">
 						<p class="p1">
-							<a target="_black" href="/html/detail.html">{{prod.title}}</a>
+							<a target="_black" id="title" href="/html/detail.html">{{prod.title}}</a>
 						</p>
 						<p class="p2">
-							<a target="_black" href="/html/detail.html">{{prod.title2}}</a>
+							<a  id="title2" target="_black" href="/html/detail.html">{{prod.title2}}</a>
 						</p>
 						<p class="p3">
-							￥<b>{{prod.price}}</b>
+							￥<b id="price">{{prod.price}}</b>
 						</p>
 					</div>
 					<div class="hov">
-						<a target="_black" class="by" href="#">立即购买</a>
-						<a target="_black" class="jion" href="#">加入收藏</a>
+						<a id="now_buy" class="by" href="javascript:void(0);">立即购买</a>
+						<a class="jion" href="#">加入收藏</a>
 					</div>
 				</div>
 			</div>
