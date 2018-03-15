@@ -44,13 +44,8 @@ require(["/js/config.js"],function(){
 					} else { // 原已有添加，则修改数量
 							_product[index].amount++;
 						}
-					console.log(_product)
 					//把当前对象保存在cookie中
 					$.cookie("produncs",_product,{path:"/",expires:7});
-					//获取cookie
-					
-					//$.cookie.json=true;
-
 				})	
 				return false;
 			});

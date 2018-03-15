@@ -1,6 +1,7 @@
 require(["/js/config.js"],function(){
 	require(["jquery","load2"],function(){
 		$(function(){		
+			
 			$(".dianpu").css({"display":"block"});
 			$(".img2").hide();
 			$(".con").css({"display":"block"});
@@ -72,6 +73,43 @@ require(["/js/config.js"],function(){
 					$(".shu").val("1")
 				}
 			})
+			//点击立即购买的时候
+			$(".buy_btn1,.buy_btn2").click(function(){
+				//找到当前点击的ID
+					let a=$(this).parents().find(".p_id").html();
+					console.log(a)
+					//当前商品对象
+					let product={
+						id:a,
+						title:$(this).parents().find(".con_right1 h2").html(),
+						price:parseInt($(this).parents().find(".span2").text()),
+						title2:$(this).parent().prev().find("#title2").text(),
+						amount:$(this).parents().find(".shu").val(),
+						img:$(this).parents().find("#img_1").attr("src"),
+						jine:parseInt($(this).parents().find(".span2").text())
+					};
+					//先查找cookie中是否有这个商品了
+					$.cookie.json=true;
+					let _product=$.cookie("produncs")||[];
+					let index;
+					index=_product.length>0?ed(product.id,_product):-1;
+					//找到当前ID是否在cookie中
+					if (index === -1) { // 新添加商品
+						_product.push(product);
+					} else { // 原已有添加，则修改数量
+							_product[index].amount++;
+						}
+
+					//把当前对象保存在cookie中
+					$.cookie("produncs",_product,{path:"/",expires:7});
+			})
 		})
 	})
 })
+function ed(id,products){
+	for (let i = 0, len = products.length; i < len; i++) {
+		if (products[i].id === id)
+		return i;
+	}
+	return -1;
+}

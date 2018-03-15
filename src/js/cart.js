@@ -33,16 +33,22 @@ require(["/js/config.js"],function(){
 		//模板加载数据
 		$.cookie.json=true;
 		let _produncs=$.cookie("produncs")
-		if(_produncs.length>0){
+		if(_produncs){
 			$(".img_bg,.sorry").hide();
 			$(".prods").show();
 		}
+		if(!_produncs.length){
+				$(".img_bg,.sorry").show();
+				$(".prods").hide();}
 		//传入模板数据
 		let data={
 			prods:_produncs
 		};
 		let html=template("prods_tem",data)
 		$(".prods").html(html);//加载
+		//显示全部商品
+		if(_produncs)
+		{$(".all_span2").text(_produncs.length)}
 		//绑定加减
 		$(".p2").on("click","span",function(){
 			//读取cookie
@@ -99,7 +105,6 @@ require(["/js/config.js"],function(){
 							let sum1=0;
 							//找到checked属性的元素并遍历
 							$(".cbox:checked").each(function(){
-								console.log(this)
 								let a=$(this).parents(".prods_1").find(".gg").text();
 								sum1+=Number(a);
 							})
@@ -129,6 +134,8 @@ require(["/js/config.js"],function(){
 					
 				}
 			});
+			if(_produncs2)
+		{$(".all_span2").text(_produncs2.length)}
 			//计算总和
 				let sum1=0;
 				//找到checked属性的元素并遍历
@@ -158,11 +165,13 @@ require(["/js/config.js"],function(){
 		//读取cookie
 		let _produncs4=$.cookie("produncs");
 		let sum=0;
+		if(_produncs4){
 		for(let i=0,len=_produncs4.length;i<len;i++){
 			sum+=Number($(".gg").eq(i).text());
 		}
 		$(".con_span1").text(_produncs4.length)
 		$(".con_span3").text(sum)
+		}
 	//输入时
 		$(".amount").blur(function(){
 			let _amount=$(".amount").val();
@@ -182,7 +191,51 @@ require(["/js/config.js"],function(){
 				$(".con_span1").text($(".cbox:checked").length)
 				$(".con_span3").text(sum1)
 			}
-		})
+		});
+		//批量删除
+		// //获取是不是选择
+		$(".pl_del").on("click",function(){
+			let _produncs=$.cookie("produncs");
+			console.log(_produncs)
+			//找到checked属性的元素并遍历
+			console.log($(".cbox:checked"))
+			$(".cbox:checked").each(function(){
+				//找到当前的id
+				 let a=$(this).parents(".prods_1").find("i").text();
+				 console.log(a)
+				 $(this).parents(".prods_1").remove();
+				 //找到cookie中对象
+				 _produncs.forEach(function(curr){
+				 	if(a==curr.id){
+				 		_produncs.splice(_produncs.indexOf(curr),1)
+				 		//每次都保存在cookie中
+				 		$.cookie("produncs",_produncs,{path:"/"})
+				 		//每次改变数值
+				 		$(".all_span2").text(_produncs.length)
+
+						if(!_produncs.length){
+							$(".img_bg,.sorry").show();
+							$(".prods").hide();}
+						}
+				 });
+			});
+			 $(".con_span1").text($(".cbox:checked").length)
+			 $(".con_span3").text(0)
+		});
+		//点击支付的时候判断
+		$(".zhifu").click(function(){
+			//读取cookie
+			let _produncs=$.cookie("produncs");
+			if(!_produncs.length){
+				$(".img_bg,.sorry").hide();
+				$(".prods").show();
+				alert("您还没有选择任何商品，请去选择")
+				location="/index.html";
+			}
+			else
+				
+				location="/html/confirm.html"
+		});
 	})
 	
 })

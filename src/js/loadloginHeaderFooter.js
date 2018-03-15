@@ -49,6 +49,7 @@ define(["jquery","cookie"],function(){
 			$.cookie.json=true;
 			//获取cookie
 			let _prods=$.cookie("produncs")
+			if(_prods)
 				$(".my_cart_3").text(_prods.length)
 	});
 	//加载尾部
